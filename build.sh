@@ -7,15 +7,12 @@ echo "=== Installing dependencies ==="
 pip install --upgrade pip
 pip install -r requirements.txt
 
-echo "=== Downloading ML model from GitHub Releases ==="
-# Download the model file if it doesn't exist
-if [ ! -f "best_churn_model.pkl" ]; then
-    echo "Downloading model from GitHub Releases..."
-    curl -L -o best_churn_model.pkl \
-        "https://github.com/Ravinthra/Customer_Churn_Prediction_System/releases/download/v1.0.0/best_churn_model.pkl"
-    echo "Model downloaded successfully!"
+echo "=== Model file check ==="
+if [ -f "best_churn_model.pkl" ]; then
+    echo "Model file found (Git LFS)"
 else
-    echo "Model file already exists, skipping download."
+    echo "ERROR: Model file not found!"
+    exit 1
 fi
 
 echo "=== Collecting static files ==="
