@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
+        if (!form.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+            form.classList.add('was-validated');
+            return;
+        }
+
+        form.classList.add('was-validated');
+
         // Prepare payload
         const payload = {
             tenure: parseInt(document.getElementById("tenure").value),
@@ -15,18 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
             Contract: parseInt(document.getElementById("contract").value),
             PaymentMethod: parseInt(document.getElementById("paymentMethod").value)
         };
-
-        // Frontend validation
-        if (
-            isNaN(payload.tenure) || payload.tenure < 0 ||
-            isNaN(payload.MonthlyCharges) || payload.MonthlyCharges <= 0 ||
-            isNaN(payload.TotalCharges) || payload.TotalCharges <= 0
-        ) {
-            resultDiv.className = "alert alert-warning mt-4";
-            resultDiv.innerHTML = "❌ Please enter valid positive values.";
-            resultDiv.classList.remove("d-none");
-            return;
-        }
 
         resultDiv.classList.add("d-none");
 
