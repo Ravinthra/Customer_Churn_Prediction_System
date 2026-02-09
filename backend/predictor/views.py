@@ -6,6 +6,7 @@ import uuid
 
 import pandas as pd
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -33,6 +34,7 @@ def home(request):
 # PREDICTION API
 # =============================================================================
 
+@csrf_exempt
 @api_view(["POST"])
 def predict_churn(request):
     """
