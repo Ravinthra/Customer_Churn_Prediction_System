@@ -1,0 +1,25 @@
+# Render.com Configuration
+# See https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: customer-churn-prediction
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "cd backend && gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: MODEL_PATH
+        value: "./best_churn_model.pkl"
+      - key: CORS_ALLOWED_ORIGINS
+        value: ""
+    healthCheckPath: /health/

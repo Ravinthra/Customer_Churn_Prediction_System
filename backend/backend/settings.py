@@ -38,6 +38,11 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
+# Render.com deployment support
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 # Production security settings (only when DEBUG=False)
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
