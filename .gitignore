@@ -20,8 +20,7 @@ staticfiles/
 # Jupyter
 .ipynb_checkpoints/
 
-# ML model files (use GitHub Releases for large models)
-*.pkl
+# ML model files are tracked with Git LFS (see .gitattributes)
 
 # Logs
 logs/
