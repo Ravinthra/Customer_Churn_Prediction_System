@@ -7,7 +7,7 @@
 
 An end-to-end Machine Learning web application that predicts customer churn using Scikit-learn and serves real-time predictions through a Django REST API with a web-based UI.
 
-🌐 **Live Demo:** [customer-churn-prediction-system-d08q.onrender.com](https://customer-churn-prediction-system-d08q.onrende)
+🌐 **Live Demo:** [customer-churn-prediction-ezz6.onrender.com](https://customer-churn-prediction-ezz6.onrender.com)
 
 > **Demo Screenshot**: *Add your screenshot to `docs/demo.png`*
 > 
