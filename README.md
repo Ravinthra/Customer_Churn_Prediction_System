@@ -9,7 +9,7 @@ An end-to-end Machine Learning web application that predicts customer churn usin
 
 🌐 **Live Demo:** [customer-churn-prediction-ezz6.onrender.com](https://customer-churn-prediction-ezz6.onrender.com)
 
-> **Demo Screenshot**: *Add your screenshot to `docs/demo.png`*
+> **Demo Screenshot**:
 > 
 > ![Demo](docs/demo.png)
 
